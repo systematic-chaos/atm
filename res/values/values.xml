@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="service_period" format="integer" type="integer">3600000</item>
+
+</resources>

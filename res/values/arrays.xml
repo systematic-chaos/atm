@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="menu_options">
+        <item>@string/check_balance</item>
+        <item>@string/change_pin</item>
+        <item>@string/transfer</item>
+        <item>@string/retrieve_movements</item>
+        <item>@string/retrieve_near_atms</item>
+        <item>@string/exit</item>
+    </string-array>
+
+</resources>
