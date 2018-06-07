@@ -1,0 +1,205 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:1:1-50:12
+INJECTED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:1:1-50:12
+INJECTED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:1:1-50:12
+INJECTED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:1:1-50:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/2ee3abb126dc35ba995826b48a7fb2ff/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/a85d14bc9fb692d46a39181c0a6a372e/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/05ac0537c7f2c9decfb22f147a98e17c/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/4875b83d3fe780bcb21f37f3bc4362fe/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/623e37cfe839125a914b555206eaf93a/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/08376457a83a747a9c06dbeef0be4ddf/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/534d5bcf1754cee9b9bfeec11ea75e8f/AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:multidex:1.0.0] /home/thanatos/.gradle/caches/transforms-1/files-1.1/multidex-1.0.0.aar/4cac98f40517b7b3877ae84247608c0f/AndroidManifest.xml:16:1-19:12
+MERGED from [com.android.volley:volley:1.1.0] /home/thanatos/.gradle/caches/transforms-1/files-1.1/volley-1.1.0.aar/0a346a0a95f181cfbd98fca7005ef5fd/AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.android.gms:play-services-places:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-places-15.0.1.aar/9b364677a99b10cc0aaf085979fa04af/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/593e2c662d58699c6c13a1b03da83734/AndroidManifest.xml:17:1-32:12
+MERGED from [com.google.android.gms:play-services-nearby:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-nearby-15.0.1.aar/f7e0e5b479d69855c509a688a7a85c48/AndroidManifest.xml:2:1-11:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/thanatos/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/48f8cbbf359c6b3ca4e4edb523e06785/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/3d691d68e5dd201df064a3632727210e/AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-15.0.1.aar/7935d09a7367eac2f452b721305491d5/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/7fe83face67c1d79958c73e44b0e652d/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/9ee1073ca51295250ae6706a2196cccf/AndroidManifest.xml:17:1-28:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/thanatos/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/161fd258cc8413b2f94681e3b361b30e/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] /home/thanatos/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/fc23d06d62c83bc4185bb6b6dded8fcc/AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/thanatos/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/428554e3febea44a6e83e52339245b07/AndroidManifest.xml:17:1-22:12
+INJECTED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:1:1-50:12
+INJECTED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:1:1-50:12
+INJECTED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:1:1-50:12
+	package
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:2:5-29
+		INJECTED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml
+		INJECTED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:4:5-30
+		INJECTED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml
+		INJECTED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:1:11-69
+	android:versionCode
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:3:5-28
+		INJECTED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml
+		INJECTED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml
+uses-sdk
+ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:6:5-8:41
+INJECTED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:6:5-8:41
+INJECTED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:6:5-8:41
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/2ee3abb126dc35ba995826b48a7fb2ff/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/2ee3abb126dc35ba995826b48a7fb2ff/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/a85d14bc9fb692d46a39181c0a6a372e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/support-fragment-27.1.1.aar/a85d14bc9fb692d46a39181c0a6a372e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/05ac0537c7f2c9decfb22f147a98e17c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-27.1.1.aar/05ac0537c7f2c9decfb22f147a98e17c/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/4875b83d3fe780bcb21f37f3bc4362fe/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/support-core-ui-27.1.1.aar/4875b83d3fe780bcb21f37f3bc4362fe/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/623e37cfe839125a914b555206eaf93a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/support-core-utils-27.1.1.aar/623e37cfe839125a914b555206eaf93a/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/08376457a83a747a9c06dbeef0be4ddf/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-27.1.1.aar/08376457a83a747a9c06dbeef0be4ddf/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/534d5bcf1754cee9b9bfeec11ea75e8f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/support-compat-27.1.1.aar/534d5bcf1754cee9b9bfeec11ea75e8f/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:multidex:1.0.0] /home/thanatos/.gradle/caches/transforms-1/files-1.1/multidex-1.0.0.aar/4cac98f40517b7b3877ae84247608c0f/AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:multidex:1.0.0] /home/thanatos/.gradle/caches/transforms-1/files-1.1/multidex-1.0.0.aar/4cac98f40517b7b3877ae84247608c0f/AndroidManifest.xml:18:5-42
+MERGED from [com.android.volley:volley:1.1.0] /home/thanatos/.gradle/caches/transforms-1/files-1.1/volley-1.1.0.aar/0a346a0a95f181cfbd98fca7005ef5fd/AndroidManifest.xml:7:5-43
+MERGED from [com.android.volley:volley:1.1.0] /home/thanatos/.gradle/caches/transforms-1/files-1.1/volley-1.1.0.aar/0a346a0a95f181cfbd98fca7005ef5fd/AndroidManifest.xml:7:5-43
+MERGED from [com.google.android.gms:play-services-places:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-places-15.0.1.aar/9b364677a99b10cc0aaf085979fa04af/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-places-15.0.1.aar/9b364677a99b10cc0aaf085979fa04af/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/593e2c662d58699c6c13a1b03da83734/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/593e2c662d58699c6c13a1b03da83734/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-nearby:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-nearby-15.0.1.aar/f7e0e5b479d69855c509a688a7a85c48/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-nearby:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-nearby-15.0.1.aar/f7e0e5b479d69855c509a688a7a85c48/AndroidManifest.xml:5:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/thanatos/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/48f8cbbf359c6b3ca4e4edb523e06785/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] /home/thanatos/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/48f8cbbf359c6b3ca4e4edb523e06785/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/3d691d68e5dd201df064a3632727210e/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/3d691d68e5dd201df064a3632727210e/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-15.0.1.aar/7935d09a7367eac2f452b721305491d5/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-15.0.1.aar/7935d09a7367eac2f452b721305491d5/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/7fe83face67c1d79958c73e44b0e652d/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/7fe83face67c1d79958c73e44b0e652d/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/9ee1073ca51295250ae6706a2196cccf/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/9ee1073ca51295250ae6706a2196cccf/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/thanatos/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/161fd258cc8413b2f94681e3b361b30e/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] /home/thanatos/.gradle/caches/transforms-1/files-1.1/livedata-core-1.1.0.aar/161fd258cc8413b2f94681e3b361b30e/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/thanatos/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/fc23d06d62c83bc4185bb6b6dded8fcc/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] /home/thanatos/.gradle/caches/transforms-1/files-1.1/runtime-1.1.0.aar/fc23d06d62c83bc4185bb6b6dded8fcc/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/thanatos/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/428554e3febea44a6e83e52339245b07/AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] /home/thanatos/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.0.aar/428554e3febea44a6e83e52339245b07/AndroidManifest.xml:20:5-44
+INJECTED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:6:5-8:41
+INJECTED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:6:5-8:41
+	android:targetSdkVersion
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:8:9-38
+		INJECTED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml
+		INJECTED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:7:9-35
+		INJECTED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml
+		INJECTED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:10:5-79
+	android:name
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:10:22-76
+uses-permission#android.permission.INTERNET
+ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:11:5-67
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/593e2c662d58699c6c13a1b03da83734/AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/593e2c662d58699c6c13a1b03da83734/AndroidManifest.xml:24:5-67
+	android:name
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:11:22-64
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:12:5-79
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/593e2c662d58699c6c13a1b03da83734/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/593e2c662d58699c6c13a1b03da83734/AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.gms:play-services-nearby:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-nearby-15.0.1.aar/f7e0e5b479d69855c509a688a7a85c48/AndroidManifest.xml:7:5-79
+MERGED from [com.google.android.gms:play-services-nearby:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-nearby-15.0.1.aar/f7e0e5b479d69855c509a688a7a85c48/AndroidManifest.xml:7:5-79
+	android:name
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:12:22-76
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:13:5-81
+	android:name
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:13:22-78
+uses-feature#0x00020000
+ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:15:5-17:35
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/593e2c662d58699c6c13a1b03da83734/AndroidManifest.xml:26:5-28:35
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/593e2c662d58699c6c13a1b03da83734/AndroidManifest.xml:26:5-28:35
+	android:glEsVersion
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:16:9-41
+	android:required
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:17:9-32
+application
+ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:19:5-48:19
+MERGED from [com.android.volley:volley:1.1.0] /home/thanatos/.gradle/caches/transforms-1/files-1.1/volley-1.1.0.aar/0a346a0a95f181cfbd98fca7005ef5fd/AndroidManifest.xml:9:5-20
+MERGED from [com.android.volley:volley:1.1.0] /home/thanatos/.gradle/caches/transforms-1/files-1.1/volley-1.1.0.aar/0a346a0a95f181cfbd98fca7005ef5fd/AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-places:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-places-15.0.1.aar/9b364677a99b10cc0aaf085979fa04af/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-places:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-places-15.0.1.aar/9b364677a99b10cc0aaf085979fa04af/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/593e2c662d58699c6c13a1b03da83734/AndroidManifest.xml:30:5-20
+MERGED from [com.google.android.gms:play-services-maps:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-maps-15.0.1.aar/593e2c662d58699c6c13a1b03da83734/AndroidManifest.xml:30:5-20
+MERGED from [com.google.android.gms:play-services-nearby:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-nearby-15.0.1.aar/f7e0e5b479d69855c509a688a7a85c48/AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-nearby:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-nearby-15.0.1.aar/f7e0e5b479d69855c509a688a7a85c48/AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/3d691d68e5dd201df064a3632727210e/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/3d691d68e5dd201df064a3632727210e/AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-15.0.1.aar/7935d09a7367eac2f452b721305491d5/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-places-placereport-15.0.1.aar/7935d09a7367eac2f452b721305491d5/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/7fe83face67c1d79958c73e44b0e652d/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-tasks-15.0.1.aar/7fe83face67c1d79958c73e44b0e652d/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/9ee1073ca51295250ae6706a2196cccf/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/9ee1073ca51295250ae6706a2196cccf/AndroidManifest.xml:22:5-26:19
+	android:label
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:23:9-41
+	android:icon
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:22:9-37
+	android:allowBackup
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:21:9-35
+	android:theme
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:24:9-40
+	android:name
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:20:9-60
+activity#corp.katet.atm.ui.AuthActivity
+ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:25:9-33:20
+	android:label
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:27:13-45
+	android:name
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:26:13-44
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:28:13-32:29
+action#android.intent.action.MAIN
+ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:29:17-69
+	android:name
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:29:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:31:17-77
+	android:name
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:31:27-74
+activity#corp.katet.atm.ui.MenuActivity
+ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:34:9-36:47
+	android:launchMode
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:36:13-44
+	android:name
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:35:13-44
+meta-data#com.google.android.gms.version
+ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:38:9-40:69
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/9ee1073ca51295250ae6706a2196cccf/AndroidManifest.xml:23:9-25:69
+MERGED from [com.google.android.gms:play-services-basement:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-basement-15.0.1.aar/9ee1073ca51295250ae6706a2196cccf/AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:40:13-66
+	android:name
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:39:13-58
+meta-data#com.google.android.geo.API_KEY
+ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:41:9-43:50
+	android:value
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:43:13-47
+	android:name
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:42:13-58
+service#corp.katet.atm.util.BalanceService
+ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:45:9-47:40
+	android:exported
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:47:13-37
+	android:name
+		ADDED from /home/thanatos/AndroidStudioProjects/atm/app/src/main/AndroidManifest.xml:46:13-48
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/3d691d68e5dd201df064a3632727210e/AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/3d691d68e5dd201df064a3632727210e/AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/3d691d68e5dd201df064a3632727210e/AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:15.0.1] /home/thanatos/.gradle/caches/transforms-1/files-1.1/play-services-base-15.0.1.aar/3d691d68e5dd201df064a3632727210e/AndroidManifest.xml:24:13-79

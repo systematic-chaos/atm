@@ -1,0 +1,29 @@
+<resources>
+
+    <string name="app_name">ATM</string>
+    <string name="enter_app">Acceder</string>
+    <string name="check_balance">Consultar saldo</string>
+    <string name="change_pin">Cambiar PIN</string>
+    <string name="transfer">Transferencias</string>
+    <string name="retrieve_movements">Consultar movimientos</string>
+    <string name="retrieve_near_atms">Ver cajeros cercanos</string>
+    <string name="menu">Menú</string>
+    <string name="auth">Identificación del usuario</string>
+    <string name="balance_msg">El saldo del usuario es de %.2f €</string>
+    <string name="eur"> €</string>
+    <string name="make_transfer">Realizar ingreso</string>
+    <string name="wrong_auth">El código PIN introducido no se corresponde con el número de cuenta</string>
+    <string name="movements_in">Movimientos de entrada</string>
+    <string name="movements_out">Movimientos de salida</string>
+    <string name="filter_date_movements">Filtrar movimientos por fecha</string>
+    <string name="wrong_date_interval">La fecha de inicio debe ser igual o anterior a la fecha de fin</string>
+    <string name="wrong_old_pin">El PIN original introducido no es correcto</string>
+    <string name="wrong_pin_match">Los códigos PIN introducidos no coinciden</string>
+    <string name="locationPermissionsNotGranted">No se puede obtener la localización del usuario sin la concesión de los permisos necesarios</string>
+    <string name="api_key">AIzaSyDUbHpyapdpau8JOlPWrn1Y455RsyHBnTg</string>
+    <string name="api_key_v2">AIzaSyDRFTGwWS2ZI6yojGMlY2s7a-CPMINjwnw</string>
+    <string name="open_drawer_content_desc">open drawer</string>
+    <string name="close_drawer_content_desc">close drawer</string>
+    <string name="exit">Salir</string>
+
+</resources>
