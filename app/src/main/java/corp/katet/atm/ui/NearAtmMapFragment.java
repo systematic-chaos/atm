@@ -299,6 +299,8 @@ public class NearAtmMapFragment extends Fragment implements OnMapReadyCallback,
 			this.address = address;
 		}
 
+		public CharSequence getAttributions() { return null; }
+
 		public String getId() {
 			return id;
 		}

@@ -33,7 +33,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 	}
 
 	/**
-	 * Obtener una instancia, patrón Singleton
+	 * Obtener una instancia, patron Singleton
 	 * 
 	 * @param context
 	 *            contexto
@@ -48,8 +48,8 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 	}
 
 	/**
-	 * Llamado de forma automática cuando se accede por primera vez. Incluir
-	 * aquí todas las creaciones de tablas e inicializaciones
+	 * Llamado de forma automatica cuando se accede por primera vez. Incluir
+	 * aqui todas las creaciones de tablas e inicializaciones
 	 * 
 	 * @param db
 	 *            objeto para manejar la base de datos
@@ -65,15 +65,15 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 	}
 
 	/**
-	 * Llamado de forma automática cuando se actualiza la versión. Incluir aquí
+	 * Llamado de forma automatica cuando se actualiza la version. Incluir aqui
 	 * todas las alteraciones de tablas y datos
 	 * 
 	 * @param db
 	 *            objeto para manejar la base de datos
-	 * @param oldVer
-	 *            número de versión anterior
-	 * @param newVer
-	 *            número de nueva versión
+	 * @param oldVersion
+	 *            numero de version anterior
+	 * @param newVersion
+	 *            numero de nueva version
 	 */
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

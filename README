@@ -1,5 +1,0 @@
-ATM
-
-Android application intended to make use of some of the persistence features Android provides, integrate the data resulting from querying certain web services into the Google Maps API, and use Android services.
-As an exemplary model, it presents a prototypical application for a bank, which allows the user to check her balance, change her pin, make a deposit, check recent movements and query near ATMs. Data is made persistent across different executions of the application by using a SQLite database embedded into the application. Near ATMs are depicted in a Google Map which centers itself in the user's location, and allows her to check the details of each one of the ATMs which surround her at a range. A service executed in the operational context of the application tells the user of her balance every 12 hours, via a notification in the upper toolbar.
-
