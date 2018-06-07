@@ -20,8 +20,6 @@
     <string name="wrong_old_pin">El PIN original introducido no es correcto</string>
     <string name="wrong_pin_match">Los códigos PIN introducidos no coinciden</string>
     <string name="locationPermissionsNotGranted">No se puede obtener la localización del usuario sin la concesión de los permisos necesarios</string>
-    <string name="api_key">AIzaSyDUbHpyapdpau8JOlPWrn1Y455RsyHBnTg</string>
-    <string name="api_key_v2">AIzaSyDRFTGwWS2ZI6yojGMlY2s7a-CPMINjwnw</string>
     <string name="open_drawer_content_desc">open drawer</string>
     <string name="close_drawer_content_desc">close drawer</string>
     <string name="exit">Salir</string>
