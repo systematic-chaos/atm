@@ -1,16 +1,14 @@
 package corp.katet.atm.ui;
 
-import java.util.Arrays;
-
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -20,7 +18,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
+
+import java.util.Arrays;
+
 import corp.katet.atm.R;
 import corp.katet.atm.util.BalanceService;
 
@@ -30,6 +30,7 @@ public class MenuActivity extends AppCompatActivity implements
 	private Fragment[] mOptionFragments;
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
+	private ActionBar actionbar;
 	private ActionBarDrawerToggle mDrawerToggle;
 	private CharSequence mDrawerTitle;
 	private CharSequence mTitle;
@@ -42,8 +43,8 @@ public class MenuActivity extends AppCompatActivity implements
 
 		mOptionTitles = getResources().getStringArray(R.array.menu_options);
 		mOptionFragments = new Fragment[mOptionTitles.length];
-		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-		mDrawerList = (ListView) findViewById(R.id.left_drawer);
+		mDrawerLayout = findViewById(R.id.drawer_layout);
+		mDrawerList = findViewById(R.id.left_drawer);
 		mTitle = mDrawerTitle = getTitle();
 
 		// Set the adapter for the list view
@@ -54,10 +55,10 @@ public class MenuActivity extends AppCompatActivity implements
 
 		// Start balance check service
 		Intent serviceIntent = new Intent(this, BalanceService.class);
-		serviceIntent.putExtra(Constants.USER_ID,
-				getIntent().getLongExtra(Constants.USER_ID, 0));
-		serviceIntent.putExtra(Constants.SERVICE_PERIOD, getResources()
-				.getInteger(R.integer.service_period));
+		serviceIntent.putExtra(AuthActivity.USER_ID,
+                getIntent().getLongExtra(AuthActivity.USER_ID, 0));
+		serviceIntent.putExtra(BalanceService.SERVICE_PERIOD,
+                getResources().getInteger(R.integer.service_period));
 		startService(serviceIntent);
 	}
 
@@ -74,12 +75,13 @@ public class MenuActivity extends AppCompatActivity implements
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
 
-		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+		Toolbar toolbar = findViewById(R.id.toolbar);
 		toolbar.setNavigationIcon(R.drawable.atm);
-		setSupportActionBar(toolbar);
-		getSupportActionBar().setDisplayShowTitleEnabled(true);
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		getSupportActionBar().setHomeButtonEnabled(true);
+        if ((actionbar = getSupportActionBar()) != null) {
+            actionbar.setDisplayShowTitleEnabled(true);
+            actionbar.setDisplayHomeAsUpEnabled(true);
+            actionbar.setHomeButtonEnabled(true);
+        }
 
 		mDrawerToggle = new ActionBarDrawerToggle(this, /* host Activity */
 		mDrawerLayout, /* DrawerLayout object */
@@ -104,7 +106,7 @@ public class MenuActivity extends AppCompatActivity implements
 		};
 
 		// Set the drawer toggle as the DrawerListener
-		mDrawerLayout.setDrawerListener(mDrawerToggle);
+		mDrawerLayout.addDrawerListener(mDrawerToggle);
 	}
 
 	@Override
@@ -147,8 +149,8 @@ public class MenuActivity extends AppCompatActivity implements
 		Fragment fragment = getOptionFragment(position);
 		if (fragment != null) {
 			Bundle args = new Bundle();
-			args.putLong(Constants.USER_ID,
-					getIntent().getLongExtra(Constants.USER_ID, 0));
+			args.putLong(AuthActivity.USER_ID,
+                    getIntent().getLongExtra(AuthActivity.USER_ID, 0));
 			fragment.setArguments(args);
 
 			// Insert the fragment by replacing any existing fragment
@@ -166,8 +168,10 @@ public class MenuActivity extends AppCompatActivity implements
 
 	@Override
 	public void setTitle(CharSequence title) {
-		mTitle = title;
-		getSupportActionBar().setTitle(mTitle);
+	    if (actionbar != null) {
+            mTitle = title;
+            actionbar.setTitle(mTitle);
+        }
 	}
 
 	/* Called whenever we call invalidateOptionsMenu() */
@@ -207,22 +211,16 @@ public class MenuActivity extends AppCompatActivity implements
 
 	@Override
 	public void onRequestPermissionsResult(int requestCode,
-			String[] permissions, int[] grantResults) {
-		if (requestCode == Constants.MY_LOCATION_REQUEST_CODE) {
-			if (permissions.length == 1
-					&& permissions[0] == Manifest.permission.ACCESS_FINE_LOCATION
-					&& grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-				NearAtmMapFragment mapFragment = (NearAtmMapFragment) mOptionFragments[Arrays
-						.asList(mOptionTitles).indexOf(
-								getString(R.string.retrieve_near_atms))];
-				if (mapFragment != null) {
-					mapFragment.requestLastLocation();
-				}
-			} else {
-				// Permission was denied. Display an error message.
-				Toast.makeText(this, R.string.locationPermissionsNotGranted,
-						Toast.LENGTH_LONG).show();
-			}
-		}
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+		if (requestCode == NearAtmMapFragment.MY_LOCATION_REQUEST_CODE
+                || requestCode == NearAtmMapFragment.MY_MAP_LOCATION_REQUEST_CODE) {
+            NearAtmMapFragment mapFragment = (NearAtmMapFragment) mOptionFragments[Arrays
+                    .asList(mOptionTitles).indexOf(
+                            getString(R.string.retrieve_near_atms))];
+            if (mapFragment != null) {
+                mapFragment.onRequestPermissionsResult(requestCode, permissions, grantResults);
+            }
+        }
 	}
 }

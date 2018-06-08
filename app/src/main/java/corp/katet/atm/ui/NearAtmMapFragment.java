@@ -1,26 +1,19 @@
 package corp.katet.atm.ui;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -32,6 +25,7 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
+import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -40,31 +34,48 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 import corp.katet.atm.R;
 import corp.katet.atm.dao.AtmDAO;
 import corp.katet.atm.dao.DAOFactory;
 import corp.katet.atm.domain.Atm;
 
-public class NearAtmMapFragment extends Fragment implements OnMapReadyCallback,
-		ConnectionCallbacks, OnConnectionFailedListener {
+public class NearAtmMapFragment extends Fragment implements
+        OnMapReadyCallback, ConnectionCallbacks, OnConnectionFailedListener,
+        ActivityCompat.OnRequestPermissionsResultCallback {
 
 	private GoogleMap mMap;
-	private GoogleApiClient mGoogleApiClient;
+    private FusedLocationProviderClient mFusedLocationClient;
 	private Location mLastLocation;
 	private RequestQueue mRequestQueue;
 	private MapView mMapView;
 
-	private static final String TAG = "NEAR_PLACES_SEARCH";
-	
+	static final String TAG = "NEAR_PLACES_SEARCH";
+
+	static final int MY_LOCATION_REQUEST_CODE = 20001;
+	static final int MY_MAP_LOCATION_REQUEST_CODE = MY_LOCATION_REQUEST_CODE + 1;
+
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	public View onCreateView(@NonNull LayoutInflater inflater,
+							 @Nullable ViewGroup container,
+							 @Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		View view = inflater.inflate(R.layout.atm_map, container, false);
 
-		mMapView = (MapView) view.findViewById(R.id.map);
+		mMapView = view.findViewById(R.id.map);
 		if (mMapView != null) {
 			mMapView.onCreate(savedInstanceState);
 			mMapView.getMapAsync(this);
@@ -77,27 +88,25 @@ public class NearAtmMapFragment extends Fragment implements OnMapReadyCallback,
 	public void onMapReady(GoogleMap googleMap) {
 		mMap = googleMap;
 		mMap.getUiSettings().setMyLocationButtonEnabled(false);
-		if (ContextCompat.checkSelfPermission(getContext(),
-				Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+		if (checkPermissionAndRequest(Manifest.permission.ACCESS_FINE_LOCATION,
+                MY_MAP_LOCATION_REQUEST_CODE)) {
 			requestLastLocation();
-		} else {
-			// Show rationale and request permission
-			ActivityCompat.requestPermissions(getActivity(),
-					new String[] { Manifest.permission.ACCESS_FINE_LOCATION },
-					Constants.MY_LOCATION_REQUEST_CODE);
 		}
+
+        GoogleApiClient googleApiClient = new GoogleApiClient.Builder(getActivity())
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(LocationServices.API).build();
+        googleApiClient.connect();
 	}
 
 	public synchronized void requestLastLocation() {
-		if (mMap != null) {
+		if (mMap != null
+                && checkPermissionAndRequest(
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                MY_MAP_LOCATION_REQUEST_CODE)) {
 			mMap.setMyLocationEnabled(true);
 		}
-
-		mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
-				.addConnectionCallbacks(this)
-				.addOnConnectionFailedListener(this)
-				.addApi(LocationServices.API).build();
-		mGoogleApiClient.connect();
 	}
 
 	@Override
@@ -125,7 +134,7 @@ public class NearAtmMapFragment extends Fragment implements OnMapReadyCallback,
 	}
 
 	@Override
-	public void onSaveInstanceState(Bundle outState) {
+	public void onSaveInstanceState(@NonNull Bundle outState) {
 		super.onSaveInstanceState(outState);
 		if (mMapView != null) {
 			mMapView.onSaveInstanceState(outState);
@@ -141,15 +150,36 @@ public class NearAtmMapFragment extends Fragment implements OnMapReadyCallback,
 	}
 
 	@Override
-	public void onConnectionFailed(ConnectionResult result) {
+	public void onConnectionFailed(@NonNull ConnectionResult result) {
 	}
 
 	@Override
 	public void onConnected(Bundle connectionHint) {
-		mLastLocation = LocationServices.FusedLocationApi
-				.getLastLocation(mGoogleApiClient);
-		mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(
-				mLastLocation.getLatitude(), mLastLocation.getLongitude()), 15.8f));
+	    if (checkPermissionAndRequest(Manifest.permission.ACCESS_FINE_LOCATION,
+                MY_LOCATION_REQUEST_CODE)) {
+            if (mFusedLocationClient == null) {
+                mFusedLocationClient =
+                        LocationServices.getFusedLocationProviderClient(getActivity());
+            }
+
+            mFusedLocationClient.getLastLocation()
+                .addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
+                    @Override
+                    public void onSuccess(Location location) {
+                        // Got last known location.
+                        // In some rare situations, this can be null.
+                        if (location != null) {
+                            mLastLocation = location;
+                        }
+                    }
+                });
+
+            if (mMap != null) {
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(
+                    mLastLocation.getLatitude(), mLastLocation.getLongitude()), 15.8f));
+            }
+        }
+
 		sendRequest();
 	}
 
@@ -157,23 +187,59 @@ public class NearAtmMapFragment extends Fragment implements OnMapReadyCallback,
 	public void onConnectionSuspended(int cause) {
 	}
 
+	@Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        boolean permissionGranted = permissions.length == 1 && grantResults.length == 1
+                && Manifest.permission.ACCESS_FINE_LOCATION.equals(permissions[0])
+                && PackageManager.PERMISSION_GRANTED == grantResults[0];
+
+        if (permissionGranted) {
+            switch (requestCode) {
+                case MY_LOCATION_REQUEST_CODE:
+                    onConnected(null);
+                case MY_MAP_LOCATION_REQUEST_CODE:
+                    requestLastLocation();
+                    break;
+            }
+        } else {
+            // Permission was denied. Display a error message.
+            Toast.makeText(getActivity(), R.string.location_permission_not_granted,
+                    Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private boolean checkPermissionAndRequest(final String permission,
+                                              final int requestCode) throws SecurityException {
+        if (ContextCompat.checkSelfPermission(getActivity(),
+                permission) != PackageManager.PERMISSION_GRANTED) {
+            // Show rationale and request permission
+            ActivityCompat.requestPermissions(getActivity(),
+                    new String[] { permission },
+                    requestCode);
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 	private synchronized void sendRequest() {
 		if (mLastLocation == null)
 			return;
 
 		// Instantiate the RequestQueue
 		mRequestQueue = Volley.newRequestQueue(getActivity());
-		StringBuilder url = new StringBuilder(
-				"https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
-		url.append("location=" + mLastLocation.getLatitude() + ","
-				+ mLastLocation.getLongitude());
-		url.append("&radius=500");
-		url.append("&types=atm");
-		url.append("&key=" + getActivity().getString(R.string.api_key));
+		String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?";
+		url += "location=" + mLastLocation.getLatitude()
+                + "," + mLastLocation.getLongitude();
+		url += "&radius=500";
+		url += "&types=atm";
+		url += "&key=" + getActivity().getString(R.string.api_key);
 
 		// Request a string response from the provided URL
 		JsonObjectRequest jsonRequest = (JsonObjectRequest) new JsonObjectRequest(
-				Request.Method.GET, url.toString(), null,
+				Request.Method.GET, url, null,
 				new Response.Listener<JSONObject>() {
 					public void onResponse(JSONObject response) {
 						try {
@@ -186,7 +252,7 @@ public class NearAtmMapFragment extends Fragment implements OnMapReadyCallback,
 								throw new JSONException(response
 										.getString("status"));
 							}
-						} catch (JSONException jsone) {
+						} catch (JSONException jsonex) {
 						}
 					}
 				}, new Response.ErrorListener() {
@@ -212,11 +278,11 @@ public class NearAtmMapFragment extends Fragment implements OnMapReadyCallback,
 					.getDouble("lng")));
 			place.setName(jsonPlace.getString("name"));
 			place.setId(jsonPlace.getString("place_id"));
-			JSONArray types = jsonPlace.getJSONArray("types");
+			/*JSONArray types = jsonPlace.getJSONArray("types");
 			List<Integer> typesCodes = new ArrayList<Integer>();
 			for (int j = 0; j < types.length(); j++) {
 				typesCodes.add(PlaceType.valueFromKey(types.getString(j)));
-			}
+			}*/
 			place.setAddress(jsonPlace.getString("vicinity"));
 			placeList.add(place);
 		}
@@ -224,6 +290,12 @@ public class NearAtmMapFragment extends Fragment implements OnMapReadyCallback,
 	}
 
 	private void addMapMarkers(List<Place> placesList) {
+		Iterator<Place> placesIt = placesList.iterator();
+		while (placesIt.hasNext()) {
+			if (placesIt.next() == null) {
+				placesIt.remove();
+			}
+		}
 		for (Place place : placesList) {
 			mMap.addMarker(new MarkerOptions().position(place.getLatLng())
 					.title(place.getName().toString())
@@ -235,6 +307,12 @@ public class NearAtmMapFragment extends Fragment implements OnMapReadyCallback,
 		AtmDAO dao = DAOFactory.getInstance(getActivity()).getAtmDAO();
 		Atm placeAtm;
 		int nRows = 0;
+		Iterator<Place> placesIt = placesList.iterator();
+		while (placesIt.hasNext()) {
+			if (placesIt.next() == null) {
+				placesIt.remove();
+			}
+		}
 		for (Place place : placesList) {
 			placeAtm = new Atm(place.getId(), place.getName().toString(), place
 					.getAddress().toString(), place.getLatLng());

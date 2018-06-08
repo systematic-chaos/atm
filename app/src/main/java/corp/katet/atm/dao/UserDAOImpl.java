@@ -1,13 +1,14 @@
 package corp.katet.atm.dao;
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
 import corp.katet.atm.domain.User;
 
 public class UserDAOImpl extends DAOImpl implements UserDAO {
@@ -69,6 +70,7 @@ public class UserDAOImpl extends DAOImpl implements UserDAO {
 			float balance = c.getFloat(columnNames.indexOf("balance"));
 			resultUser = new User(userId, accountNumber, pin, balance);
 		}
+		c.close();
 		return resultUser;
 	}
 
@@ -85,6 +87,7 @@ public class UserDAOImpl extends DAOImpl implements UserDAO {
 			float balance = c.getFloat(columnNames.indexOf("balance"));
 			resultUser = new User(userId, userAccount, pin, balance);
 		}
+		c.close();
 		return resultUser;
 	}
 
@@ -109,6 +112,7 @@ public class UserDAOImpl extends DAOImpl implements UserDAO {
 			float balance = c.getFloat(columnNames.indexOf("balance"));
 			result.add(new User(idUser, accountNumber, pin, balance));
 		}
+		c.close();
 		return result;
 	}
 }

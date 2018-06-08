@@ -19,9 +19,15 @@
     <string name="wrong_date_interval">La fecha de inicio debe ser igual o anterior a la fecha de fin</string>
     <string name="wrong_old_pin">El PIN original introducido no es correcto</string>
     <string name="wrong_pin_match">Los códigos PIN introducidos no coinciden</string>
-    <string name="locationPermissionsNotGranted">No se puede obtener la localización del usuario sin la concesión de los permisos necesarios</string>
+    <string name="location_permission_not_granted">No se puede obtener la localización del usuario sin la concesión de los permisos necesarios</string>
     <string name="open_drawer_content_desc">open drawer</string>
     <string name="close_drawer_content_desc">close drawer</string>
     <string name="exit">Salir</string>
+    <string name="old_pin_hint">Introduzca su código PIN actual</string>
+    <string name="new_pin_hint">Introduzca su nuevo código PIN</string>
+    <string name="new_pin_check_hint">Introduzca su nuevo código PIN otra vez, para que pueda ser verificado</string>
+    <string name="transfer_amount_hint">Introduzca la cantidad a transferir</string>
+    <string name="balance_notification_channel_name">balance</string>
+    <string name="balance_notification_channel_description">Balance service notification channel</string>
 
 </resources>

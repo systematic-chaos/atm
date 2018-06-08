@@ -8,7 +8,7 @@
         android:id="@+id/checkbox_date_movements"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
+        android:layout_gravity="left|start"
         android:checked="true"
         android:text="@string/filter_date_movements" />
 
@@ -22,6 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
             android:calendarViewShown="true"
             android:firstDayOfWeek="2" />
 
@@ -31,6 +32,7 @@
             android:layout_height="wrap_content"
             android:calendarViewShown="true"
             android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"
             android:firstDayOfWeek="2" />
     </LinearLayout>
 
@@ -43,7 +45,7 @@
             android:id="@+id/checkbox_in_movements"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
+            android:layout_gravity="left|start"
             android:checked="true"
             android:text="@string/movements_in" />
 
@@ -51,7 +53,7 @@
             android:id="@+id/checkbox_out_movements"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
+            android:layout_gravity="left|start"
             android:checked="true"
             android:text="@string/movements_out" />
     </LinearLayout>

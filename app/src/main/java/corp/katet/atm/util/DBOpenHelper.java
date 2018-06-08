@@ -1,5 +1,10 @@
 package corp.katet.atm.util;
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -7,11 +12,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import corp.katet.atm.R;
-
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBOpenHelper extends SQLiteOpenHelper {
 
@@ -24,7 +24,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 	/**
 	 * Constructor privado
 	 * 
-	 * @param context
+	 * @param context Context: to use for locating paths to the database. This value may be null.
 	 */
 	private DBOpenHelper(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);

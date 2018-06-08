@@ -1,8 +1,8 @@
 package corp.katet.atm.dao;
 
-import java.util.Set;
-
 import com.google.android.gms.maps.model.LatLngBounds;
+
+import java.util.Set;
 
 import corp.katet.atm.domain.Atm;
 

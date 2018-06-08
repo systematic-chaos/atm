@@ -1,10 +1,10 @@
-CREATE TABLE user (
+CREATE TABLE user(
     id_user INTEGER PRIMARY KEY AUTOINCREMENT,
     account_number TEXT UNIQUE NOT NULL,
     pin INTEGER NOT NULL,
     balance REAL NOT NULL DEFAULT 0);
 
-CREATE TABLE movement (
+CREATE TABLE movement(
     id_movement INTEGER PRIMARY KEY AUTOINCREMENT,
     id_usr_to INTEGER NOT NULL,
     id_usr_from INTEGER,
@@ -24,7 +24,7 @@ CREATE TRIGGER compute_resulting_balance_from AFTER INSERT ON movement
             UPDATE user SET balance = (balance - new.amount) WHERE id_user = new.id_usr_from;
         END;
 
-CREATE TABLE atm (
+CREATE TABLE atm(
     id_atm TEXT PRIMARY KEY,
     name TEXT,
     address TEXT

@@ -1,11 +1,30 @@
 package corp.katet.atm.ui;
 
+import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
+import android.widget.DatePicker;
+import android.widget.DatePicker.OnDateChangedListener;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import corp.katet.atm.R;
 import corp.katet.atm.dao.DAOFactory;
@@ -13,21 +32,6 @@ import corp.katet.atm.dao.MovementDAO;
 import corp.katet.atm.dao.MovementDAOImpl;
 import corp.katet.atm.domain.Movement;
 import corp.katet.atm.domain.User;
-import android.content.Context;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.DatePicker;
-import android.widget.CompoundButton;
-import android.widget.DatePicker.OnDateChangedListener;
-import android.widget.CheckBox;
-import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class MovementFragment extends Fragment {
 	private View mView;
@@ -38,19 +42,22 @@ public class MovementFragment extends Fragment {
 	private boolean mFilterDate, mInMovements, mOutMovements;
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	public View onCreateView(@NonNull LayoutInflater inflater,
+							 @Nullable ViewGroup container,
+							 @Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mView = inflater.inflate(R.layout.movement_list, container, false);
-		mUser = DAOFactory.getInstance(getActivity()).getUserDAO()
-				.getUserFromId(getArguments().getLong(Constants.USER_ID));
+		if (getArguments() != null && getArguments().containsKey(AuthActivity.USER_ID)) {
+			mUser = DAOFactory.getInstance(getActivity()).getUserDAO()
+                    .getUserFromId(getArguments().getLong(AuthActivity.USER_ID));
+		}
 		initializeWidgetChangeListeners();
 		return mView;
 	}
 
 	private void initializeWidgetChangeListeners() {
 		Calendar now = Calendar.getInstance();
-		final DatePicker fromCalendar = (DatePicker) mView
+		final DatePicker fromCalendar = mView
 				.findViewById(R.id.calendar_movement_from);
 		fromCalendar.setMaxDate(now.getTimeInMillis());
 		fromCalendar.init(now.get(Calendar.YEAR), now.get(Calendar.MONTH),
@@ -72,7 +79,7 @@ public class MovementFragment extends Fragment {
 				});
 		mFromDate = now.getTime();
 
-		final DatePicker toCalendar = (DatePicker) mView
+		final DatePicker toCalendar = mView
 				.findViewById(R.id.calendar_movement_to);
 		toCalendar.setMaxDate(now.getTimeInMillis());
 		toCalendar.init(now.get(Calendar.YEAR), now.get(Calendar.MONTH),
@@ -80,7 +87,6 @@ public class MovementFragment extends Fragment {
 					public void onDateChanged(DatePicker view, int year,
 							int month, int dayOfMonth) {
 						Calendar newToDate = Calendar.getInstance();
-						newToDate = Calendar.getInstance();
 						newToDate.set(year, month, dayOfMonth);
 						newToDate.add(Calendar.DATE, 1);
 						newToDate.add(Calendar.MINUTE, -5);
@@ -97,8 +103,8 @@ public class MovementFragment extends Fragment {
 				});
 		mToDate = now.getTime();
 
-		CheckBox checkFilterDate = ((CheckBox) mView
-				.findViewById(R.id.checkbox_date_movements));
+		CheckBox checkFilterDate = mView
+				.findViewById(R.id.checkbox_date_movements);
 		checkFilterDate
 				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 					public void onCheckedChanged(CompoundButton buttonView,
@@ -111,8 +117,8 @@ public class MovementFragment extends Fragment {
 				});
 		mFilterDate = checkFilterDate.isChecked();
 
-		CheckBox checkIn = ((CheckBox) mView
-				.findViewById(R.id.checkbox_in_movements));
+		CheckBox checkIn = mView
+				.findViewById(R.id.checkbox_in_movements);
 		checkIn.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			public void onCheckedChanged(CompoundButton buttonView,
 					boolean isChecked) {
@@ -122,8 +128,8 @@ public class MovementFragment extends Fragment {
 		});
 		mInMovements = checkIn.isChecked();
 
-		CheckBox checkOut = ((CheckBox) mView
-				.findViewById(R.id.checkbox_out_movements));
+		CheckBox checkOut = mView
+				.findViewById(R.id.checkbox_out_movements);
 		checkOut.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			public void onCheckedChanged(CompoundButton buttonView,
 					boolean isChecked) {
@@ -176,7 +182,7 @@ public class MovementFragment extends Fragment {
 	private class MovementAdapter extends ArrayAdapter<Movement> {
 
 		private Context context;
-		private List<Movement> data = null;
+		private List<Movement> data;
 
 		public MovementAdapter(Context context, int resource) {
 			super(context, resource);
@@ -192,17 +198,16 @@ public class MovementFragment extends Fragment {
 		}
 
 		@Override
-		public View getView(final int position, View convertView,
-				final ViewGroup parent) {
-			if (position < 0 || position >= data.size()) {
-				return null;
-			}
+		public @NonNull View getView(int position,
+                @Nullable View convertView,
+				@NonNull final ViewGroup parent) {
+            position = Math.abs(position) % data.size();
 			View view = convertView == null ? ((LayoutInflater) context
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE))
 					.inflate(R.layout.movement, parent, false) : convertView;
 			Movement mov = data.get(position);
 			((TextView) view.findViewById(R.id.textViewMovementAmount))
-					.setText(String.format("%.2f", mov.getAmount()));
+					.setText(String.format(Locale.ENGLISH, "%.2f", mov.getAmount()));
 			((TextView) view.findViewById(R.id.textViewMovementDate))
 					.setText(MovementDAOImpl.dateToString(mov.getDate()));
 			return view;
@@ -223,7 +228,7 @@ public class MovementFragment extends Fragment {
 		}
 
 		@Override
-		public void addAll(Collection<? extends Movement> collection) {
+		public void addAll(@NonNull Collection<? extends Movement> collection) {
 			super.addAll(collection);
 			data.addAll(collection);
 			notifyDataSetChanged();

@@ -1,16 +1,16 @@
 package corp.katet.atm.dao;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import corp.katet.atm.domain.Atm;
 
@@ -72,6 +72,7 @@ public class AtmDAOImpl extends DAOImpl implements AtmDAO {
 					c.getFloat(columnNames.indexOf("lng")));
 			resultAtm = new Atm(idAtm, name, address, coords);
 		}
+		c.close();
 		return resultAtm;
 	}
 
@@ -88,6 +89,7 @@ public class AtmDAOImpl extends DAOImpl implements AtmDAO {
 					c.getFloat(columnNames.indexOf("lng")));
 			result.add(new Atm(id, name, address, coords));
 		}
+		c.close();
 		return result;
 	}
 
@@ -110,6 +112,7 @@ public class AtmDAOImpl extends DAOImpl implements AtmDAO {
 					c.getFloat(columnNames.indexOf("lng")));
 			result.add(new Atm(id, name, address, coords));
 		}
+		c.close();
 		return result;
 	}
 }

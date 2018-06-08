@@ -1,8 +1,9 @@
 package corp.katet.atm.dao;
 
-import corp.katet.atm.util.DBOpenHelper;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+
+import corp.katet.atm.util.DBOpenHelper;
 
 public abstract class DAOImpl {
 

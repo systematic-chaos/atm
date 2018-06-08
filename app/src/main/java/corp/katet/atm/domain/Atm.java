@@ -60,12 +60,13 @@ public class Atm {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		if (name != null) {
-			sb.append(name + "\t");
+		    sb.append(name).append('\t');
 		}
 		if (address != null) {
-			sb.append(address + "\t");
+		    sb.append(address).append('\t');
 		}
-		sb.append("[" + coords.latitude + "," + coords.longitude + "]");
+		sb.append('[').append(coords.latitude).append(',')
+                .append(coords.longitude).append(']');
 		return sb.toString();
 	}
 }

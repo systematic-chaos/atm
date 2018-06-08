@@ -1,5 +1,9 @@
 package corp.katet.atm.dao;
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -7,10 +11,6 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-
-import android.content.ContentValues;
-import android.content.Context;
-import android.database.Cursor;
 
 import corp.katet.atm.domain.Movement;
 import corp.katet.atm.domain.User;

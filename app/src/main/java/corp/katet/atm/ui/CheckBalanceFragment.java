@@ -1,14 +1,17 @@
 package corp.katet.atm.ui;
 
-import corp.katet.atm.R;
-import corp.katet.atm.dao.DAOFactory;
-import corp.katet.atm.domain.User;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import corp.katet.atm.R;
+import corp.katet.atm.dao.DAOFactory;
+import corp.katet.atm.domain.User;
 
 public class CheckBalanceFragment extends Fragment {
 
@@ -16,12 +19,16 @@ public class CheckBalanceFragment extends Fragment {
 	private User mUser;
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	public View onCreateView(@NonNull LayoutInflater inflater,
+							 @Nullable ViewGroup container,
+							 @Nullable Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mView = inflater.inflate(R.layout.check_balance, container, false);
-		mUser = DAOFactory.getInstance(getActivity()).getUserDAO()
-				.getUserFromId(getArguments().getLong(Constants.USER_ID));
+		if (getArguments() != null
+				&& getArguments().containsKey(AuthActivity.USER_ID)) {
+		    mUser = DAOFactory.getInstance(getActivity()).getUserDAO()
+                    .getUserFromId(getArguments().getLong(AuthActivity.USER_ID));
+        }
 
 		displayCurrentBalance();
 
@@ -29,8 +36,10 @@ public class CheckBalanceFragment extends Fragment {
 	}
 
 	private void displayCurrentBalance() {
-		((TextView) mView.findViewById(R.id.textViewBalance))
-				.setText(getActivity().getString(R.string.balance_msg,
-						mUser.getCurrentBalance()));
+	    if (getActivity() != null) {
+            ((TextView) mView.findViewById(R.id.textViewBalance))
+                    .setText(getActivity().getString(R.string.balance_msg,
+                            mUser.getCurrentBalance()));
+        }
 	}
 }

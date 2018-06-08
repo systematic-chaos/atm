@@ -76,11 +76,11 @@ public class Movement {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		if (userTo != null) {
-			sb.append(userTo.getAccountNumber() + " --> ");
+			sb.append(userTo.getAccountNumber()).append(" -- > ");
 		}
 		sb.append(userFrom.getAccountNumber());
-		sb.append("\t" + amount);
-		sb.append("\t" + date);
+		sb.append('\t').append(amount);
+		sb.append('\t').append(date);
 		return sb.toString();
 	}
 }

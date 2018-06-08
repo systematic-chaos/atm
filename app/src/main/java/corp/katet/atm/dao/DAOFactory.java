@@ -1,9 +1,9 @@
 package corp.katet.atm.dao;
 
+import android.content.Context;
+
 import java.util.HashMap;
 import java.util.Map;
-
-import android.content.Context;
 
 import corp.katet.atm.domain.Atm;
 import corp.katet.atm.domain.Movement;
